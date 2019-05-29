@@ -1,0 +1,15 @@
+
+//apply plugin: 'idea'
+//and standard one
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+sourceCompatibility = 1.8
+
