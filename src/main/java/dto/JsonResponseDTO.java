@@ -7,16 +7,23 @@ public class JsonResponseDTO extends JsonRequestDTO {
     BigDecimal order_number;
     BigDecimal price;
     String status;
-    String text_format;
     String uid;
+    String translatedText;
 
-    public JsonResponseDTO(String text, String sourceLanguage, String targuetLanguage, BigDecimal order_number, BigDecimal price, String status, String text_format, String uid) {
-        super(text, sourceLanguage, targuetLanguage);
+    public JsonResponseDTO() {
+    }
+
+    public JsonResponseDTO(String text, String sourceLanguage, String targuetLanguage, String textFormat) {
+        super(text, sourceLanguage, targuetLanguage,textFormat);
+    }
+
+    public JsonResponseDTO(String text, String sourceLanguage, String targuetLanguage, String textFormat, BigDecimal order_number, BigDecimal price, String status, String uid, String translatedText) {
+        super(text, sourceLanguage, targuetLanguage, textFormat);
         this.order_number = order_number;
         this.price = price;
         this.status = status;
-        this.text_format = text_format;
         this.uid = uid;
+        this.translatedText = translatedText;
     }
 
     public BigDecimal getOrder_number() {
@@ -43,19 +50,19 @@ public class JsonResponseDTO extends JsonRequestDTO {
         this.status = status;
     }
 
-    public String getText_format() {
-        return text_format;
-    }
-
-    public void setText_format(String text_format) {
-        this.text_format = text_format;
-    }
-
     public String getUid() {
         return uid;
     }
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public String getTranslatedText() {
+        return translatedText;
+    }
+
+    public void setTranslatedText(String translatedText) {
+        this.translatedText = translatedText;
     }
 }

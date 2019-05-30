@@ -1,5 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+          <script src="/Users/goncalobarros/Desktop/UnbabelChallenge/java-coding-challenge/src/main/resources/public/stylesheets/styles.css"></script>
+        <h1 align="center">Unbabel Challenge</h1>
+    </head>
 
-<div class="container">
-   <div>Translation Challenge</div>
 
-</div>
+
+    <body>
+        <div class="container">
+           <form action="http://localhost:8080/home/translate/">
+           <h3 > Text to translate:</h3>
+             <input type="text" name="textToTranslate" value="" placeholder="Insert text here">
+
+                <select id="selectFrom" name= "fromLang">
+                     <option value="pt" selected="selected">Portuguese</option>
+                     <option value="en">English</option>
+                </select>
+
+                <select id="selectFrom" name= "toLang">
+                     <option value="pt">Portuguese</option>
+                     <option value="en" selected="selected">English</option>
+                </select>
+             <input type="submit" value="Submit">
+           </form>
+
+            <br>
+            <h3> Translations:</h3>
+            <table class="table table-bordered ">
+                   <tr align="center" >
+                       <th>From Language</th>
+                       <th>Original Text</th>
+                       <th>To Language</th>
+                       <th>Translated Text</th>
+                       <th>Status</th>
+                   </tr>
+                       <tr align="center" >
+                          <td>{{sourceLanguage}}</td>
+                          <td>{{originalText}}</td>
+                          <td>{{targetLanguage}}</td>
+                          <td>{{translatedText}}</td>
+                          <td>{{status}}</td>
+                       </tr>
+
+            </table>
+        </div>
+    </body>
+
+
+
+    <script>
+
+
+    function pollServerForNewMail() {
+    var id = "{{uid}}";
+    alert(id)
+        setInterval(function(){
+            // Code in this function will run every 10 seconds
+
+            $.ajax({ url: "/home/translate/check",
+            data: {
+                uid: id
+              },
+             success: function(data){
+                alert("TEST");
+                poll();
+            }, dataType: "json"});
+        }, 5000);
+    }
+
+    pollServerForNewMail()
+    </script>
+</html>
+
+
