@@ -49,32 +49,41 @@
     </body>
 
     <script>
+
         function pollServerForNewTranslation() {
 
-         var id = "{{uid}}";
-         var statusId = "{{uid}}" + "status";
-         console.log(statusId);
+        var id = "{{uid}}";
+        var statusId = "{{uid}}" + "status";
+        var status = "{{status}}";
 
-        setInterval(function loadTranslation() {
-          var xhttp = new XMLHttpRequest();
-          var params = "uid=" + id;
-          xhttp.onreadystatechange = function() {
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
-                console.log(xhttp.responseText);
-                parser = new DOMParser();
-                var doc = parser.parseFromString(xhttp.responseText, "text/html");
-                document.getElementById(id).innerHTML = doc.getElementById(id).innerHTML;
-                document.getElementById(statusId).innerHTML = doc.getElementById(statusId).innerHTML;
+            var interval = setInterval(function loadTranslation() {
+            var xhttp = new XMLHttpRequest();
+            var params = "uid=" + id;
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    parser = new DOMParser();
+                    var doc = parser.parseFromString(xhttp.responseText, "text/html");
+                    status = doc.getElementById(statusId).innerHTML;
+                    document.getElementById(id).innerHTML = doc.getElementById(id).innerHTML;
+                    document.getElementById(statusId).innerHTML = doc.getElementById(statusId).innerHTML;
+                }
+            };
+            xhttp.open("GET", "/home/translate/check" + "?" + params, true);
+            xhttp.send();
+
+            if(status === "completed"){
+            stopPolling(interval)
             }
-          };
-          xhttp.open("GET", "/home/translate/check" + "?" + params, true);
-          xhttp.send();
-        }, 5000);
+            }, 5000);
         }
+
         setTimeout(pollServerForNewTranslation, 5000)
 
+        function stopPolling(intervalId) {
+            console.log("STOP")
+            clearInterval(intervalId)
+        }
     </script>
-
 </html>
 
 

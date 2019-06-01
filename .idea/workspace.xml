@@ -31,8 +31,8 @@
           <file leaf-file-name="ChallengeRouter.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="45">
-                  <caret line="61" column="2" selection-start-line="61" selection-start-column="2" selection-end-line="61" selection-end-column="2" />
+                <state relative-caret-position="225">
+                  <caret line="73" column="4" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#603#604#0" expanded="true" />
@@ -119,8 +119,8 @@
           <file leaf-file-name="home.hbs" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.hbs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="143">
-                  <caret line="45" column="14" lean-forward="true" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+                <state relative-caret-position="617">
+                  <caret line="85" column="36" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
                 </state>
               </provider>
             </entry>
@@ -190,10 +190,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-317" />
-    <option name="y" value="67" />
-    <option name="width" value="2140" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="y" value="24" />
+    <option name="width" value="1680" />
     <option name="height" value="973" />
   </component>
   <component name="ProjectView">
@@ -474,7 +473,7 @@
     <option name="totallyTimeSpent" value="14000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-317" y="67" width="2140" height="973" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -485,13 +484,13 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2958843" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26653308" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="right" id="Coverage" side_tool="true" weight="0.3297619" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1271028" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16190477" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.32925472" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3296593" />
       <window_info anchor="right" id="Gradle" order="5" />
@@ -949,8 +948,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="61" column="2" selection-start-line="61" selection-start-column="2" selection-end-line="61" selection-end-column="2" />
+        <state relative-caret-position="225">
+          <caret line="73" column="4" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#603#604#0" expanded="true" />
@@ -963,8 +962,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="45" column="14" lean-forward="true" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+        <state relative-caret-position="617">
+          <caret line="85" column="36" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
         </state>
       </provider>
     </entry>
