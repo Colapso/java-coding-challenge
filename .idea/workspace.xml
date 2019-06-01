@@ -2,18 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="992d5e48-527d-4dfe-9770-4fc227d07efa" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-coding-challenge/app/ChallengeApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-coding-challenge/app/ChallengeApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-coding-challenge/app/ChallengeRouter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-coding-challenge/app/ChallengeRouter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-coding-challenge/app/HttpReq.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-coding-challenge/app/HttpReq.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-coding-challenge/dto/JsonRequestDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-coding-challenge/dto/JsonResponseDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ChallengeApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ChallengeApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/HttpReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/HttpReq.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/JsonRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/TranslationRequestDtos/JsonRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/JsonResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/TranslationRequestDtos/JsonResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/favicon.ico" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.hbs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/" />
@@ -43,8 +31,8 @@
           <file leaf-file-name="ChallengeRouter.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="201">
-                  <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+                <state relative-caret-position="45">
+                  <caret line="61" column="2" selection-start-line="61" selection-start-column="2" selection-end-line="61" selection-end-column="2" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#603#604#0" expanded="true" />
@@ -131,8 +119,8 @@
           <file leaf-file-name="home.hbs" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.hbs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="392">
-                  <caret line="63" column="16" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
+                <state relative-caret-position="143">
+                  <caret line="45" column="14" lean-forward="true" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
                 </state>
               </provider>
             </entry>
@@ -203,7 +191,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-282" />
+    <option name="x" value="-317" />
     <option name="y" value="67" />
     <option name="width" value="2140" />
     <option name="height" value="973" />
@@ -486,7 +474,7 @@
     <option name="totallyTimeSpent" value="14000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-282" y="68" width="2140" height="973" extended-state="0" />
+    <frame x="-317" y="67" width="2140" height="973" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -961,8 +949,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+        <state relative-caret-position="45">
+          <caret line="61" column="2" selection-start-line="61" selection-start-column="2" selection-end-line="61" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#603#604#0" expanded="true" />
@@ -975,8 +963,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="63" column="16" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
+        <state relative-caret-position="143">
+          <caret line="45" column="14" lean-forward="true" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
         </state>
       </provider>
     </entry>

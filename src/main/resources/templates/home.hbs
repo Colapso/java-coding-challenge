@@ -39,7 +39,7 @@
                           <td>{{originalText}}</td>
                           <td>{{targetLanguage}}</td>
                           <td id={{uid}}>{{translatedText}}</td>
-                          <td>{{status}}</td>
+                          <td id={{uid}}status>{{status}}</td>
                        </tr>
 
             </table>
@@ -52,17 +52,19 @@
         function pollServerForNewTranslation() {
 
          var id = "{{uid}}";
+         var statusId = "{{uid}}" + "status";
+         console.log(statusId);
 
         setInterval(function loadTranslation() {
           var xhttp = new XMLHttpRequest();
           var params = "uid=" + id;
           xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
-
+                console.log(xhttp.responseText);
                 parser = new DOMParser();
                 var doc = parser.parseFromString(xhttp.responseText, "text/html");
-                document.getElementById(id).innerHTML = doc.getElementById(id).innerHTML
-
+                document.getElementById(id).innerHTML = doc.getElementById(id).innerHTML;
+                document.getElementById(statusId).innerHTML = doc.getElementById(statusId).innerHTML;
             }
           };
           xhttp.open("GET", "/home/translate/check" + "?" + params, true);
