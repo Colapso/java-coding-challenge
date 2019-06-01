@@ -1,20 +1,46 @@
-<div id="tableContainer"></div>
-<h3> Translations:</h3>
-<table class="table table-bordered ">
-    <tr align="center">
-        <th>From Language</th>
-        <th>Original Text</th>
-        <th>To Language</th>
-        <th>Translated Text</th>
-        <th>Status</th>
-    </tr>
-    <tr align="center">
+
+<tr align="center" id="tableRow">
         <td>{{sourceLanguage}}</td>
         <td>{{originalText}}</td>
         <td>{{targetLanguage}}</td>
         <td id={{uid}}>{{translatedText}}</td>
         <td id={{uid}}status>{{status}}</td>
-    </tr>
+</tr>
 
-</table>
 
+<script>
+
+        function pollServerForNewTranslation() {
+
+        var id = "{{uid}}";
+        var statusId = "{{uid}}" + "status";
+        var status = "{{status}}";
+
+            var interval = setInterval(function loadTranslation() {
+            var xhttp = new XMLHttpRequest();
+            var params = "uid=" + id;
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    parser = new DOMParser();
+                    var doc = parser.parseFromString(xhttp.responseText, "text/html");
+                    status = doc.getElementById(statusId).innerHTML;
+                    document.getElementById(id).innerHTML = doc.getElementById(id).innerHTML;
+                    document.getElementById(statusId).innerHTML = doc.getElementById(statusId).innerHTML;
+                }
+            };
+            xhttp.open("GET", "/home/translate/check" + "?" + params, true);
+            xhttp.send();
+
+            if(status === "completed"){
+            stopPolling(interval)
+            }
+            }, 5000);
+        }
+
+        setTimeout(pollServerForNewTranslation, 2000)
+
+        function stopPolling(intervalId) {
+            console.log("STOP")
+            clearInterval(intervalId)
+        }
+    </script>

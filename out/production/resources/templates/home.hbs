@@ -26,6 +26,16 @@
             <br>
         </div>
         <div id="tableContainer">
+            <h3> Translations:</h3>
+            <table class="table table-bordered" id="tableRow">
+                <tr align="center">
+                    <th>From Language</th>
+                    <th>Original Text</th>
+                    <th>To Language</th>
+                    <th>Translated Text</th>
+                    <th>Status</th>
+                </tr>
+            </table>
 
         </div>
 
@@ -47,13 +57,13 @@
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
                     parser = new DOMParser();
                     var doc = parser.parseFromString(xhttp.responseText, "text/html");
-                    document.getElementById("tableContainer").innerHTML = xhttp.responseText;
+                    document.getElementById("tableRow").innerHTML += xhttp.responseText;
+                    //pollServerForNewTranslation();
                 }
             };
         xhttp.open("GET", "/home/translate" + "?" + params, true);
         xhttp.send();
         }
-
 
     </script>
 
