@@ -1,21 +1,23 @@
 package dto.LangPairsDtos;
 
+import java.util.List;
+
 public class LangPairObjectsContainerDto {
 
-    LangPairContainerDto[] objects;
+    List<LangPairContainerDto> objects;
 
     public LangPairObjectsContainerDto() {
     }
 
-    public LangPairObjectsContainerDto(LangPairContainerDto[] objects) {
+    public LangPairObjectsContainerDto(List<LangPairContainerDto> objects) {
         this.objects = objects;
     }
 
-    public void setObjects(LangPairContainerDto[] objects) {
-        this.objects = objects;
-    }
-
-    public LangPairContainerDto[] getObjects() {
+    public List<LangPairContainerDto> getObjects() {
         return objects;
+    }
+
+    public void setObjects(List<LangPairContainerDto> objects) {
+        this.objects = objects;
     }
 }
