@@ -48,7 +48,7 @@ public class ChallengeRouter {
         context.put("status", dto.getStatus());
         context.put("uid", dto.getUid());
 
-            engine.render(context, "src/main/resources/templates", "/home.hbs", view -> {
+            engine.render(context, "src/main/resources/templates", "/table.hbs", view -> {
                 if (view.succeeded())
                     resp.end(view.result());
                 else
@@ -61,8 +61,8 @@ public class ChallengeRouter {
         HttpServerRequest req = context.request();
         String textToTranslate = req.getParam("textToTranslate");
         String langPair = req.getParam("langPair");
-        String fromLang = langPair.split("/")[0];
-        String toLang = langPair.split("/")[1];
+        String fromLang = langPair.split("/")[0].trim();
+        String toLang = langPair.split("/")[1].trim();
         HttpServerResponse resp = context.response();
         resp.putHeader("content-type", "text/html");
 
@@ -76,7 +76,7 @@ public class ChallengeRouter {
         context.put("uid", dto.getUid());
 
 
-        engine.render(context, "src/main/resources/templates", "/home.hbs", view -> {
+        engine.render(context, "src/main/resources/templates", "/table.hbs", view -> {
             if (view.succeeded())
                 resp.end(view.result());
             else
