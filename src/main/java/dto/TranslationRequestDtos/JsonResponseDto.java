@@ -1,8 +1,10 @@
-package dto;
+package dto.TranslationRequestDtos;
+
+import dto.TranslationRequestDtos.JsonRequestDto;
 
 import java.math.BigDecimal;
 
-public class JsonResponseDTO extends JsonRequestDTO {
+public class JsonResponseDto extends JsonRequestDto {
 
     BigDecimal order_number;
     BigDecimal price;
@@ -10,14 +12,14 @@ public class JsonResponseDTO extends JsonRequestDTO {
     String uid;
     String translatedText;
 
-    public JsonResponseDTO() {
+    public JsonResponseDto() {
     }
 
-    public JsonResponseDTO(String text, String sourceLanguage, String targuetLanguage, String textFormat) {
+    public JsonResponseDto(String text, String sourceLanguage, String targuetLanguage, String textFormat) {
         super(text, sourceLanguage, targuetLanguage,textFormat);
     }
 
-    public JsonResponseDTO(String text, String sourceLanguage, String targuetLanguage, String textFormat, BigDecimal order_number, BigDecimal price, String status, String uid, String translatedText) {
+    public JsonResponseDto(String text, String sourceLanguage, String targuetLanguage, String textFormat, BigDecimal order_number, BigDecimal price, String status, String uid, String translatedText) {
         super(text, sourceLanguage, targuetLanguage, textFormat);
         this.order_number = order_number;
         this.price = price;

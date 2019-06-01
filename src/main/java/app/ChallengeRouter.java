@@ -1,6 +1,7 @@
 package app;//import com.github.jknack.handlebars.Handlebars;
 
-import dto.JsonResponseDTO;
+import dto.LangPairsDtos.LangPairObjectsContainerDto;
+import dto.TranslationRequestDtos.JsonResponseDto;
 import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
@@ -14,7 +15,7 @@ public class ChallengeRouter {
     private ChallengeApi challengeApi;
     private final TemplateEngine engine = HandlebarsTemplateEngine.create();
 
-    public ChallengeRouter(Vertx vertex, ChallengeApi challengeApi ) {
+    public ChallengeRouter(ChallengeApi challengeApi) {
         this.challengeApi = challengeApi;
     }
 
@@ -24,76 +25,78 @@ public class ChallengeRouter {
 
     public static Router router(Vertx vertx, ChallengeApi api) {
         Router router = Router.router(vertx);
-        ChallengeRouter handlers = new ChallengeRouter(vertx, api);
+        ChallengeRouter handlers = new ChallengeRouter(api);
         router.route("/home").handler(handlers::handleHome);
-        //should be done with ajax request only actualize future table
         router.route("/home/translate").handler(handlers::handleTranslationRequest);
         router.route("/home/translate/check").handler(handlers::handleTranslationCheckRequest);
 
         return router;
     }
 
-    private void handleTranslationCheckRequest(RoutingContext contex) {
-        HttpServerRequest req = contex.request();
+    private void handleTranslationCheckRequest(RoutingContext context) {
+        HttpServerRequest req = context.request();
         String uid = req.getParam("uid");
-        HttpServerResponse resp = contex.response();
+        HttpServerResponse resp = context.response();
         resp.putHeader("content-type", "text/html");
 
-        JsonResponseDTO dto = challengeApi.getTranslationCheckRequest(uid);
+        JsonResponseDto dto = challengeApi.getTranslationCheck(uid);
 
-        contex.put("sourceLanguage", dto.getSourceLanguage());
-        contex.put("originalText", dto.getText());
-        contex.put("targetLanguage", dto.getTarguetLanguage());
-        contex.put("translatedText", dto.getTranslatedText());
-        contex.put("status", dto.getStatus());
-        contex.put("uid", dto.getUid());
+        context.put("sourceLanguage", dto.getSourceLanguage());
+        context.put("originalText", dto.getText());
+        context.put("targetLanguage", dto.getTarguetLanguage());
+        context.put("translatedText", dto.getTranslatedText());
+        context.put("status", dto.getStatus());
+        context.put("uid", dto.getUid());
 
-        if(dto.getStatus().equals("completed")) {
-
-            engine.render(contex, "src/main/resources/templates", "/home.hbs", view -> {
+            engine.render(context, "src/main/resources/templates", "/home.hbs", view -> {
                 if (view.succeeded())
                     resp.end(view.result());
                 else
-                    contex.fail(view.cause());
+                    context.fail(view.cause());
             });
-        }
+
     }
 
-    private void handleTranslationRequest(RoutingContext contex) {
-        HttpServerRequest req = contex.request();
+    private void handleTranslationRequest(RoutingContext context) {
+        HttpServerRequest req = context.request();
         String textToTranslate = req.getParam("textToTranslate");
-        String fromLang = req.getParam("fromLang");
-        String toLang = req.getParam("toLang");
-        HttpServerResponse resp = contex.response();
+        String langPair = req.getParam("langPair");
+        String fromLang = langPair.split("/")[0];
+        String toLang = langPair.split("/")[1];
+        HttpServerResponse resp = context.response();
         resp.putHeader("content-type", "text/html");
 
-        JsonResponseDTO dto = challengeApi.getTranslationRequest(textToTranslate, fromLang, toLang);
+        JsonResponseDto dto = challengeApi.getTranslation(textToTranslate, fromLang, toLang);
 
-        contex.put("sourceLanguage", dto.getSourceLanguage());
-        contex.put("originalText", dto.getText());
-        contex.put("targetLanguage", dto.getTarguetLanguage());
-        contex.put("translatedText", dto.getTranslatedText());
-        contex.put("status", dto.getStatus());
-        contex.put("uid", dto.getUid());
+        context.put("sourceLanguage", dto.getSourceLanguage());
+        context.put("originalText", dto.getText());
+        context.put("targetLanguage", dto.getTarguetLanguage());
+        context.put("translatedText", dto.getTranslatedText());
+        context.put("status", dto.getStatus());
+        context.put("uid", dto.getUid());
 
 
-        engine.render(contex, "src/main/resources/templates", "/home.hbs",view -> {
-            if(view.succeeded())
+        engine.render(context, "src/main/resources/templates", "/home.hbs", view -> {
+            if (view.succeeded())
                 resp.end(view.result());
             else
-                contex.fail(view.cause());
+                context.fail(view.cause());
         });
     }
 
-    private void handleHome(RoutingContext ctx) {
-        HttpServerResponse resp = ctx.response();
+    private void handleHome(RoutingContext context) {
+        HttpServerRequest req = context.request();
+        HttpServerResponse resp = context.response();
         resp.putHeader("content-type", "text/html");
 
-        engine.render(ctx, "src/main/resources/templates", "/home.hbs", view -> {
-            if(view.succeeded())
+        LangPairObjectsContainerDto dto = challengeApi.getLanguagePair();
+        context.put("langPairContainer", dto.getObjects());
+
+        engine.render(context, "src/main/resources/templates", "/home.hbs", view -> {
+            if (view.succeeded())
                 resp.end(view.result());
             else
-                ctx.fail(view.cause());
+                context.fail(view.cause());
         });
 
     }

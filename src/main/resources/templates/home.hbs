@@ -16,15 +16,10 @@
            <form action="http://localhost:8080/home/translate/">
            <h3 > Text to translate:</h3>
              <input type="text" name="textToTranslate" value="" placeholder="Insert text here">
-
-                <select id="selectFrom" name= "fromLang">
-                     <option value="pt" selected="selected">Portuguese</option>
-                     <option value="en">English</option>
-                </select>
-
-                <select id="selectFrom" name= "toLang">
-                     <option value="pt">Portuguese</option>
-                     <option value="en" selected="selected">English</option>
+                <select id="selectFrom" name= "langPair">
+                    {{#each langPairContainer}}
+                        <option value="{{lang_pair.source_language.shortname}}/{{lang_pair.target_language.shortname}}">{{lang_pair.source_language.shortname}} / {{lang_pair.target_language.shortname}}</option>
+                    {{/each}}
                 </select>
              <input type="submit" value="Submit">
            </form>
@@ -43,38 +38,41 @@
                           <td>{{sourceLanguage}}</td>
                           <td>{{originalText}}</td>
                           <td>{{targetLanguage}}</td>
-                          <td>{{translatedText}}</td>
+                          <td id={{uid}}>{{translatedText}}</td>
                           <td>{{status}}</td>
                        </tr>
 
             </table>
         </div>
+
+        {{translatedText}}
     </body>
 
-
-
     <script>
+        function pollServerForNewTranslation() {
 
+         var id = "{{uid}}";
 
-    function pollServerForNewMail() {
-    var id = "{{uid}}";
-    alert(id)
-        setInterval(function(){
-            // Code in this function will run every 10 seconds
+        setInterval(function loadTranslation() {
+          var xhttp = new XMLHttpRequest();
+          var params = "uid=" + id;
+          xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
 
-            $.ajax({ url: "/home/translate/check",
-            data: {
-                uid: id
-              },
-             success: function(data){
-                alert("TEST");
-                poll();
-            }, dataType: "json"});
+                parser = new DOMParser();
+                var doc = parser.parseFromString(xhttp.responseText, "text/html");
+                document.getElementById(id).innerHTML = doc.getElementById(id).innerHTML
+
+            }
+          };
+          xhttp.open("GET", "/home/translate/check" + "?" + params, true);
+          xhttp.send();
         }, 5000);
-    }
+        }
+        setTimeout(pollServerForNewTranslation, 5000)
 
-    pollServerForNewMail()
     </script>
+
 </html>
 
 

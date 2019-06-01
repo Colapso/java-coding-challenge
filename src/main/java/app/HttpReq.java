@@ -1,24 +1,17 @@
 package app;
 
-import com.google.gson.Gson;
-import dto.JsonRequestDTO;
-import dto.JsonResponseDTO;
-import org.asynchttpclient.AsyncHttpClient;
-import org.asynchttpclient.DefaultAsyncHttpClient;
-import org.asynchttpclient.Response;
+import dto.TranslationRequestDtos.JsonRequestDto;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URL;
-import java.util.concurrent.CompletableFuture;
 
 import static java.util.Objects.nonNull;
 
 public class HttpReq {
 
-    public String postContent(String httpMethod,String authHeader,String uri, JsonRequestDTO dto) {
+    public String sendPost(String httpMethod, String authHeader, String uri, JsonRequestDto dto) {
         HttpURLConnection connection = null;
         StringBuilder response = new StringBuilder();
         try {
@@ -60,7 +53,7 @@ public class HttpReq {
         }
     }
 
-        public String sendGet(String httpMethod,String authHeader,String uri, JsonRequestDTO dto){
+        public String sendGet(String httpMethod,String authHeader,String uri){
 
             URL obj = null;
             StringBuffer response = null;
@@ -93,7 +86,23 @@ public class HttpReq {
         }
 
     //Async not working
-    /*public CompletableFuture<String> getContent(String authHeader,String uri, String textToTranslate) {
+
+   /* public CompletableFuture<String> postContentAsync(String authHeader,String uri, String textToTranslate) {
+        AsyncHttpClient asyncHttpClient = new DefaultAsyncHttpClient();
+        String obj = "{\"text\" : \"Hello, world!\", \"source_language\" : \"en\", \"target_language\" : \"pt\", \"text_format\" : \"text\"}";
+
+        return asyncHttpClient
+                .preparePost("https://api.unbabel.com/tapi/v2/tone/")
+                .setHeader("Content-Type", "application/json")
+                .addHeader("Authorization", authHeader)
+                .execute() // ASYNC => não bloqueante
+                .toCompletableFuture()                 // CF<Response>
+                .thenApply(Response::getResponseBody)  // CF<String>
+                .whenComplete((res, ex) -> closeAHC(asyncHttpClient)); // CF<String>
+    }
+
+
+    public CompletableFuture<String> getContentAsync(String authHeader,String uri, String textToTranslate) {
         AsyncHttpClient asyncHttpClient = new DefaultAsyncHttpClient();
         String obj = "{\"text\" : \"Hello, world!\", \"source_language\" : \"en\", \"target_language\" : \"pt\", \"text_format\" : \"text\"}";
 
