@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="992d5e48-527d-4dfe-9770-4fc227d07efa" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/app/ChallengeApiAsync.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/app/ChallengeApiAsync.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/app/HttpReq.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/app/HttpReq.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/resources/templates/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/home.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/resources/templates/table.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/table.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ChallengeApiAsync.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ChallengeApiAsync.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/HttpReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/HttpReq.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/table.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/table.hbs" afterDir="false" />
     </list>
@@ -18,7 +24,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/java_coding_challenge$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1559386323734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/java_coding_challenge$App.ic" NAME="App Coverage Results" MODIFIED="1559412578360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/java_coding_challenge$App.ic" NAME="App Coverage Results" MODIFIED="1559473846295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.*</FILTER>
     </SUITE>
   </component>
@@ -39,63 +45,14 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.43876836">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="ChallengeRouter.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java">
+        <leaf>
+          <file leaf-file-name="home.hbs" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.hbs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="336">
-                  <caret line="68" selection-start-line="68" selection-end-line="68" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="RouteImpl.class" pinned="false" current-in-tab="false">
-            <entry file="jar://$USER_HOME$/Downloads/vertx-web-3.5.1.jar!/io/vertx/ext/web/impl/RouteImpl.class">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="191">
-                  <caret line="200" selection-start-line="200" selection-end-line="200" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LangPairObjectsContainerDto.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/dto/LangPairsDtos/LangPairObjectsContainerDto.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
-                  <folding>
-                    <element signature="e#262#263#0" expanded="true" />
-                    <element signature="e#300#301#0" expanded="true" />
-                    <element signature="e#384#385#0" expanded="true" />
-                    <element signature="e#450#451#0" expanded="true" />
-                    <element signature="e#488#489#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/app/App.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ChallengeApi.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/app/ChallengeApi.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
-                  <caret line="24" column="98" selection-start-line="24" selection-start-column="98" selection-end-line="24" selection-end-column="103" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                <state relative-caret-position="28">
+                  <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="9" selection-end-column="11" />
                 </state>
               </provider>
             </entry>
@@ -104,29 +61,15 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="home.hbs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.hbs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-402">
-                  <caret line="10" selection-start-line="10" selection-end-line="10" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="table.hbs" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/resources/templates/table.hbs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-123">
-                  <caret line="1" selection-start-line="1" selection-end-line="7" selection-end-column="5" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="JsonResponseDto.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/dto/TranslationRequestDtos/JsonResponseDto.java">
-              <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="60">
-                  <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+                  <caret line="4" selection-start-line="4" selection-end-line="4" />
+                  <folding>
+                    <element signature="n#style#0;n#i#0;n#head#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -188,12 +131,10 @@
         <option value="$PROJECT_DIR$/src/main/resources/public/stylesheets/styles.css" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/translationRow.hbs" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/home2.hbs" />
-        <option value="$PROJECT_DIR$/src/main/java/app/ChallengeApiAsync.java" />
         <option value="$PROJECT_DIR$/src/main/java/dto/JsonResponseDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dto/JsonResponseDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/dto/JsonRequestDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dto/JsonRequestDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/HttpReq.java" />
         <option value="$PROJECT_DIR$/src/main/java/dto/LanguageDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/dto/LangPairDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/dto/LangPairContainerDto.java" />
@@ -208,10 +149,13 @@
         <option value="$PROJECT_DIR$/src/main/java/dto/LangPairsDtos/LangPairObjectsContainerDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/App.java" />
         <option value="$PROJECT_DIR$/src/test/java/ChallengeTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/ChallengeApi.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/table.hbs" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/sc.js" />
+        <option value="$PROJECT_DIR$/src/main/java/app/HttpReq.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/ChallengeApiAsync.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/home.hbs" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/table.hbs" />
       </list>
     </option>
   </component>
@@ -232,6 +176,17 @@
             <path>
               <item name="java-coding-challenge" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-coding-challenge" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-coding-challenge" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-coding-challenge" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-coding-challenge" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-coding-challenge" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-coding-challenge" type="b2602c69:ProjectViewProjectNode" />
@@ -338,7 +293,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.55172414" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -587,13 +542,13 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33767536" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1523046" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="right" id="Coverage" order="12" side_tool="true" weight="0.3297619" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14940476" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.120238096" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.32865733" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3296593" />
       <window_info anchor="right" id="Gradle" order="5" />
@@ -662,37 +617,13 @@
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java</url>
-          <line>50</line>
-          <properties />
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java</url>
-          <line>44</line>
-          <properties />
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/ChallengeTests.java</url>
           <line>35</line>
           <properties />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java</url>
-          <line>68</line>
-          <properties />
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java</url>
-          <line>63</line>
-          <properties />
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="34" />
+      <option name="time" value="36" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -730,13 +661,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/Downloads/vertx-web-3.5.1.jar!/io/vertx/ext/web/impl/RouterImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Downloads/vertx-core-3.5.1.jar!/io/vertx/core/http/impl/Http1xServerConnection.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -822,6 +746,10 @@
           <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#665#666#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#772#773#0" expanded="true" />
+            <element signature="e#842#843#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -925,13 +853,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dto/LangPairsDtos/LangPairTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/ChallengeApiAsync.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="4" selection-end-line="35" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dto/LangPairsDtos/LanguageDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -972,6 +893,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/javascript/polling.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/sc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/vertx-web-3.5.1.jar!/io/vertx/ext/web/impl/RouteImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="200" selection-start-line="200" selection-end-line="200" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#665#666#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#772#773#0" expanded="true" />
+            <element signature="e#842#843#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dto/TranslationRequestDtos/JsonResponseDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/ChallengeApiAsync.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/HttpReq.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1590">
+          <caret line="106" column="37" selection-start-line="106" selection-start-column="37" selection-end-line="106" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dto/LangPairsDtos/LangPairObjectsContainerDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -993,64 +972,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Downloads/vertx-web-3.5.1.jar!/io/vertx/ext/web/impl/RouteImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="200" selection-start-line="200" selection-end-line="200" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/HttpReq.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/ChallengeApi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="98" selection-start-line="24" selection-start-column="98" selection-end-line="24" selection-end-column="103" />
+        <state relative-caret-position="210">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/javascript/polling.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/ChallengeRouter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dto/TranslationRequestDtos/JsonResponseDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-402">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="28">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="9" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/table.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="1" selection-start-line="1" selection-end-line="7" selection-end-column="5" />
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#head#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1111,7 +1057,6 @@
             <option name="proportions">
               <list>
                 <option value="0.55172414" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

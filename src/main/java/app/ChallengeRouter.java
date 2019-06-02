@@ -48,12 +48,12 @@ public class ChallengeRouter {
         context.put("status", dto.getStatus());
         context.put("uid", dto.getUid());
 
-            engine.render(context, "src/main/resources/templates", "/table.hbs", view -> {
-                if (view.succeeded())
-                    resp.end(view.result());
-                else
-                    context.fail(view.cause());
-            });
+        engine.render(context, "src/main/resources/templates", "/table.hbs", view -> {
+            if (view.succeeded())
+                resp.end(view.result());
+            else
+                context.fail(view.cause());
+        });
 
     }
 

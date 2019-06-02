@@ -1,46 +1,19 @@
-
-<tr align="center" id="tableRow">
+<head>
+    <title>Font Awesome Icons</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<table class="table table-bordered" id="table2">
+<tr align="center" >
+        <td style="display:none;">{{uid}}</td>
         <td>{{sourceLanguage}}</td>
         <td>{{originalText}}</td>
         <td>{{targetLanguage}}</td>
         <td id={{uid}}>{{translatedText}}</td>
         <td id={{uid}}status>{{status}}</td>
+        <td><button onclick="pollServerForNewTranslation('{{uid}}')">
+            <i class="fa fa-refresh fa-spin" style="font-size:24px"></i></button></td>
+
 </tr>
+</table>
 
-
-<script>
-
-        function pollServerForNewTranslation() {
-
-        var id = "{{uid}}";
-        var statusId = "{{uid}}" + "status";
-        var status = "{{status}}";
-
-            var interval = setInterval(function loadTranslation() {
-            var xhttp = new XMLHttpRequest();
-            var params = "uid=" + id;
-            xhttp.onreadystatechange = function() {
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    parser = new DOMParser();
-                    var doc = parser.parseFromString(xhttp.responseText, "text/html");
-                    status = doc.getElementById(statusId).innerHTML;
-                    document.getElementById(id).innerHTML = doc.getElementById(id).innerHTML;
-                    document.getElementById(statusId).innerHTML = doc.getElementById(statusId).innerHTML;
-                }
-            };
-            xhttp.open("GET", "/home/translate/check" + "?" + params, true);
-            xhttp.send();
-
-            if(status === "completed"){
-            stopPolling(interval)
-            }
-            }, 5000);
-        }
-
-        setTimeout(pollServerForNewTranslation, 2000)
-
-        function stopPolling(intervalId) {
-            console.log("STOP")
-            clearInterval(intervalId)
-        }
-    </script>

@@ -1,11 +1,15 @@
 package app;
 
 import dto.TranslationRequestDtos.JsonRequestDto;
+import org.asynchttpclient.AsyncHttpClient;
+import org.asynchttpclient.DefaultAsyncHttpClient;
+import org.asynchttpclient.Response;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.CompletableFuture;
 
 import static java.util.Objects.nonNull;
 
@@ -87,12 +91,10 @@ public class HttpReq {
 
     //Async not working
 
-   /* public CompletableFuture<String> postContentAsync(String authHeader,String uri, String textToTranslate) {
+    public CompletableFuture<String> postContentAsync(String authHeader, String uri, String textToTranslate) {
         AsyncHttpClient asyncHttpClient = new DefaultAsyncHttpClient();
-        String obj = "{\"text\" : \"Hello, world!\", \"source_language\" : \"en\", \"target_language\" : \"pt\", \"text_format\" : \"text\"}";
-
         return asyncHttpClient
-                .preparePost("https://api.unbabel.com/tapi/v2/tone/")
+                .preparePost(uri)
                 .setHeader("Content-Type", "application/json")
                 .addHeader("Authorization", authHeader)
                 .execute() // ASYNC => não bloqueante
@@ -102,12 +104,10 @@ public class HttpReq {
     }
 
 
-    public CompletableFuture<String> getContentAsync(String authHeader,String uri, String textToTranslate) {
+    public CompletableFuture<String> getContentAsync(String authHeader,String uri) {
         AsyncHttpClient asyncHttpClient = new DefaultAsyncHttpClient();
-        String obj = "{\"text\" : \"Hello, world!\", \"source_language\" : \"en\", \"target_language\" : \"pt\", \"text_format\" : \"text\"}";
-
         return asyncHttpClient
-                .prepareGet("https://api.unbabel.com/tapi/v2/tone/")
+                .prepareGet(uri)
                 .setHeader("Content-Type", "application/json")
                 .addHeader("Authorization", authHeader)
                 .execute() // ASYNC => não bloqueante
@@ -121,6 +121,6 @@ public class HttpReq {
         } catch(IOException e) {
             throw new RuntimeException(e);
         }
-    }*/
+    }
 }
 

@@ -9,8 +9,6 @@
         <h1 align="center">Unbabel Challenge</h1>
     </head>
 
-
-
     <body>
         <div>
            <form method="get" name="form1" id="form1">
@@ -27,7 +25,7 @@
         </div>
         <div id="tableContainer">
             <h3> Translations:</h3>
-            <table class="table table-bordered" id="tableRow">
+            <table class="table table-bordered" id="table1">
                 <tr align="center">
                     <th>From Language</th>
                     <th>Original Text</th>
@@ -35,11 +33,13 @@
                     <th>Translated Text</th>
                     <th>Status</th>
                 </tr>
+                <tr align="center" id="tableRow">
+
+                </tr>
+
+
             </table>
-
         </div>
-
-
     </body>
 
     <script>
@@ -48,7 +48,6 @@
 
         var langPair = $( "#selectFrom option:selected" ).text();
         var textToTranslate = $('#inputText').val();
-        console.log(langPair)
 
         var xhttp = new XMLHttpRequest();
         var params = "langPair=" + langPair+"&"+"textToTranslate="+ textToTranslate;
@@ -57,16 +56,83 @@
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
                     parser = new DOMParser();
                     var doc = parser.parseFromString(xhttp.responseText, "text/html");
-                    document.getElementById("tableRow").innerHTML += xhttp.responseText;
-                    //pollServerForNewTranslation();
+                    document.getElementById("table1").innerHTML += xhttp.responseText;
+                    console.log(xhttp.responseText);
                 }
             };
         xhttp.open("GET", "/home/translate" + "?" + params, true);
         xhttp.send();
         }
 
-    </script>
+        function pollServerForNewTranslation(id) {
+        var status = undefined;
+          var interval = setInterval(function loadTranslation() {
+            var xhttp = new XMLHttpRequest();
+            var params = "uid=" + id;
 
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    parser = new DOMParser();
+                    var doc = parser.parseFromString(xhttp.responseText, "text/html");
+                    var rows = document.getElementById("table1").getElementsByTagName("tr");
+                    var rows2 = doc.getElementById("table2").rows;
+
+                    $('#table1 > tbody td').each(function () {
+                        if(this.id == id){
+                        var tdId = this;
+                            for(var i = 0; i < rows2.length; i ++){
+                                var tds = rows2[i].getElementsByTagName("td");
+
+                                for (var n=0; n<tds.length;n++){
+                                    if(tds[n].id == id){
+                                        tdId.innerHTML = tds[n].innerHTML
+                                    }
+                                 }
+                            }
+
+                        }
+
+                        if(this.id == (id+'status')){
+                        var tdStatus = this;
+                            for(var i = 0; i < rows2.length; i ++){
+                                var tds = rows2[i].getElementsByTagName("td");
+
+                                for (var n=0; n<tds.length;n++){
+                                    if(tds[n].id == (id+'status')){
+                                        tdStatus.innerHTML = tds[n].innerHTML
+                                        status = tds[n].innerHTML
+                                    }
+                                 }
+                            }
+
+                        }
+                    });
+
+
+
+                    console.log(rows)
+                    console.log(rows2)
+
+                }
+             };
+        if(status === "completed"){
+           stopPolling(interval)
+        }else{
+        xhttp.open("GET", "/home/translate/check" + "?" + params, true);
+        xhttp.send();
+        }
+
+
+          }, 5000);
+}
+
+
+function stopPolling(intervalId) {
+console.log("STOP")
+clearInterval(intervalId)
+}
+
+    </script>
 </html>
 
 
