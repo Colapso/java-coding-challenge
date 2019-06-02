@@ -21,22 +21,24 @@ public class ChallengeApiAsync {
         this.request = request;
     }
 
-    //Async prepared
+    //Get translation
     public CompletableFuture<JsonResponseDto> getTranslation(String textToTranslate) {
         return getRequestAsync(textToTranslate, JsonResponseDto.class);
     }
 
+    //Get supported languages
     public CompletableFuture<LangPairObjectsContainerDto> getLanguagePair() {
         return getRequestAsync(HOME + LANGUAGE_PAIR, LangPairObjectsContainerDto.class);
     }
 
+    //GET request async
     public <T> CompletableFuture<T> getRequestAsync(String url, Class<T> klass) {
         return request
                 .getContentAsync(API_USER + API_PASS, url)
                 .thenApply(elem -> gson.fromJson(elem, klass));
     }
 
-
+    //POST request async
     public <T> CompletableFuture<T> postRequestAsync(String textToTranslate, Class<T> klass) {
         return request.postContentAsync(API_USER + API_PASS, HOME + POST_TRANSLATION, textToTranslate)
                 .thenApply(elem -> gson.fromJson(elem, klass));

@@ -23,6 +23,7 @@ public class ChallengeRouter {
         return router(vertex, new ChallengeApi(new HttpReq()));
     }
 
+    //Define routes and handlers for each one
     public static Router router(Vertx vertx, ChallengeApi api) {
         Router router = Router.router(vertx);
         ChallengeRouter handlers = new ChallengeRouter(api);
@@ -33,30 +34,28 @@ public class ChallengeRouter {
         return router;
     }
 
-    private void handleTranslationCheckRequest(RoutingContext context) {
+    //Handler for firt request
+    private void handleHome(RoutingContext context) {
         HttpServerRequest req = context.request();
-        String uid = req.getParam("uid");
         HttpServerResponse resp = context.response();
         resp.putHeader("content-type", "text/html");
 
-        JsonResponseDto dto = challengeApi.getTranslationCheck(uid);
+        //Representation of resource that comes from server already mapped into dto
+        LangPairObjectsContainerDto dto = challengeApi.getLanguagePair();
 
-        context.put("sourceLanguage", dto.getSourceLanguage());
-        context.put("originalText", dto.getText());
-        context.put("targetLanguage", dto.getTarguetLanguage());
-        context.put("translatedText", dto.getTranslatedText());
-        context.put("status", dto.getStatus());
-        context.put("uid", dto.getUid());
+        //Add data of dto needed in context
+        context.put("langPairContainer", dto.getObjects());
 
-        engine.render(context, "src/main/resources/templates", "/table.hbs", view -> {
+        // Render template
+        engine.render(context, "src/main/resources/templates", "/home.hbs", view -> {
             if (view.succeeded())
                 resp.end(view.result());
             else
                 context.fail(view.cause());
         });
-
     }
 
+    //Handler for translation request
     private void handleTranslationRequest(RoutingContext context) {
         HttpServerRequest req = context.request();
         String textToTranslate = req.getParam("textToTranslate");
@@ -66,6 +65,7 @@ public class ChallengeRouter {
         HttpServerResponse resp = context.response();
         resp.putHeader("content-type", "text/html");
 
+        //Representation of resource that comes from server already mapped into dto
         JsonResponseDto dto = challengeApi.getTranslation(textToTranslate, fromLang, toLang);
 
         context.put("sourceLanguage", dto.getSourceLanguage());
@@ -75,7 +75,7 @@ public class ChallengeRouter {
         context.put("status", dto.getStatus());
         context.put("uid", dto.getUid());
 
-
+        // Render template
         engine.render(context, "src/main/resources/templates", "/table.hbs", view -> {
             if (view.succeeded())
                 resp.end(view.result());
@@ -84,15 +84,26 @@ public class ChallengeRouter {
         });
     }
 
-    private void handleHome(RoutingContext context) {
+    //Handler for check translation request
+    private void handleTranslationCheckRequest(RoutingContext context) {
         HttpServerRequest req = context.request();
+        String uid = req.getParam("uid");
         HttpServerResponse resp = context.response();
         resp.putHeader("content-type", "text/html");
 
-        LangPairObjectsContainerDto dto = challengeApi.getLanguagePair();
-        context.put("langPairContainer", dto.getObjects());
+        //Representation of resource that comes from server already mapped into dto
+        JsonResponseDto dto = challengeApi.getTranslationCheck(uid);
 
-        engine.render(context, "src/main/resources/templates", "/home.hbs", view -> {
+        //Add data of dto needed in context
+        context.put("sourceLanguage", dto.getSourceLanguage());
+        context.put("originalText", dto.getText());
+        context.put("targetLanguage", dto.getTarguetLanguage());
+        context.put("translatedText", dto.getTranslatedText());
+        context.put("status", dto.getStatus());
+        context.put("uid", dto.getUid());
+
+        // Render template
+        engine.render(context, "src/main/resources/templates", "/table.hbs", view -> {
             if (view.succeeded())
                 resp.end(view.result());
             else

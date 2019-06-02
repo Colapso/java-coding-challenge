@@ -27,7 +27,7 @@ public class HttpReq {
             connection.setRequestProperty("Authorization", authHeader);
             connection.setDoOutput(true);
 
-            //send request
+            //Send request
             OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
             if (nonNull(dto)) {
                 wr.write(dto.toString());
@@ -57,45 +57,42 @@ public class HttpReq {
         }
     }
 
-        public String sendGet(String httpMethod,String authHeader,String uri){
+    public String sendGet(String httpMethod, String authHeader, String uri) {
 
-            URL obj = null;
-            StringBuffer response = null;
-            try {
-                obj = new URL(uri);
-                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-                // optional default is GET
-                con.setRequestMethod(httpMethod);
-                con.setRequestProperty("Authorization", authHeader);
-                BufferedReader in = new BufferedReader(
-                        new InputStreamReader(con.getInputStream()));
+        URL obj = null;
+        StringBuffer response = null;
+        try {
+            obj = new URL(uri);
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+            // optional default is GET
+            con.setRequestMethod(httpMethod);
+            con.setRequestProperty("Authorization", authHeader);
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(con.getInputStream()));
 
-                String inputLine;
-                response = new StringBuffer();
+            String inputLine;
+            response = new StringBuffer();
 
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
-                }
-                in.close();
-
-                //print result
-                System.out.println(response.toString());
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
             }
-            return response.toString();
+            in.close();
 
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return response.toString();
 
-    //Async not working
+    }
 
+    //Async
     public CompletableFuture<String> postContentAsync(String authHeader, String uri, String textToTranslate) {
         AsyncHttpClient asyncHttpClient = new DefaultAsyncHttpClient();
         return asyncHttpClient
-                .preparePost(uri)
-                .setHeader("Content-Type", "application/json")
+                .preparePost(uri) //Post request
+                .setHeader("Content-Type", "application/json")//Definition of headers
                 .addHeader("Authorization", authHeader)
                 .execute() // ASYNC => não bloqueante
                 .toCompletableFuture()                 // CF<Response>
@@ -103,22 +100,23 @@ public class HttpReq {
                 .whenComplete((res, ex) -> closeAHC(asyncHttpClient)); // CF<String>
     }
 
-
-    public CompletableFuture<String> getContentAsync(String authHeader,String uri) {
+    public CompletableFuture<String> getContentAsync(String authHeader, String uri) {
         AsyncHttpClient asyncHttpClient = new DefaultAsyncHttpClient();
         return asyncHttpClient
-                .prepareGet(uri)
-                .setHeader("Content-Type", "application/json")
+                .prepareGet(uri) //Get request
+                .setHeader("Content-Type", "application/json")//Definition of headers
                 .addHeader("Authorization", authHeader)
                 .execute() // ASYNC => não bloqueante
                 .toCompletableFuture()                 // CF<Response>
                 .thenApply(Response::getResponseBody)  // CF<String>
                 .whenComplete((res, ex) -> closeAHC(asyncHttpClient)); // CF<String>
     }
-    static void closeAHC(AsyncHttpClient client){
+
+    //Close Async
+    static void closeAHC(AsyncHttpClient client) {
         try {
             client.close();
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

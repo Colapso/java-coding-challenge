@@ -1,137 +1,138 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-          <script src="/Users/goncalobarros/Desktop/UnbabelChallenge/java-coding-challenge/src/main/resources/public/stylesheets/styles.css"></script>
-        <h1 align="center">Unbabel Challenge</h1>
-    </head>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/Users/goncalobarros/Desktop/UnbabelChallenge/java-coding-challenge/src/main/resources/public/stylesheets/styles.css"></script>
+    <h1 align="center">Unbabel Challenge</h1>
+</head>
 
-    <body>
-        <div>
-           <form method="get" name="form1" id="form1">
-           <h3 > Text to translate:</h3>
-             <input type="text" id="inputText" name="translate" value="" placeholder="Insert text here">
-                <select id="selectFrom" name= "langPair">
-                    {{#each langPairContainer}}
-                        <option value="{{lang_pair.source_language.shortname}}/{{lang_pair.target_language.shortname}}">{{lang_pair.source_language.shortname}} / {{lang_pair.target_language.shortname}}</option>
-                    {{/each}}
-                </select>
-               <input type="button" value="Submit" onclick="getTranslation()">
-           </form>
-            <br>
-        </div>
-        <div id="tableContainer">
-            <h3> Translations:</h3>
-            <table class="table table-bordered" id="table1">
-                <tr align="center">
-                    <th>From Language</th>
-                    <th>Original Text</th>
-                    <th>To Language</th>
-                    <th>Translated Text</th>
-                    <th>Status</th>
-                </tr>
-                <tr align="center" id="tableRow">
+<body>
+<div>
+    <form method="get" name="form1" id="form1">
+        <h3> Text to translate:</h3>
+        <input type="text" id="inputText" name="translate" value="" placeholder="Insert text here">
+        <select id="selectFrom" name="langPair">
+            {{#each langPairContainer}}
+                <option value="{{lang_pair.source_language.shortname}}/{{lang_pair.target_language.shortname}}">{{lang_pair.source_language.shortname}}
+                    / {{lang_pair.target_language.shortname}}</option>
+            {{/each}}
+        </select>
+        <input type="button" value="Submit" onclick="getTranslation()">
+    </form>
+    <br>
+</div>
+<div id="tableContainer">
+    <h3> Translations:</h3>
+    <table class="table table-bordered" id="table1">
+        <tr align="center">
+            <th>From Language</th>
+            <th>Original Text</th>
+            <th>To Language</th>
+            <th>Translated Text</th>
+            <th>Status</th>
+        </tr>
+        <tr align="center" id="tableRow">
 
-                </tr>
+        </tr>
 
 
-            </table>
-        </div>
-    </body>
+    </table>
+</div>
+</body>
 
     <script>
 
         function getTranslation() {
+            let langPair = $( "#selectFrom option:selected" ).text();
+            let textToTranslate = $('#inputText').val();
 
-        var langPair = $( "#selectFrom option:selected" ).text();
-        var textToTranslate = $('#inputText').val();
-
-        var xhttp = new XMLHttpRequest();
-        var params = "langPair=" + langPair+"&"+"textToTranslate="+ textToTranslate;
-
-        xhttp.onreadystatechange = function() {
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    parser = new DOMParser();
-                    var doc = parser.parseFromString(xhttp.responseText, "text/html");
-                    document.getElementById("table1").innerHTML += xhttp.responseText;
-                    console.log(xhttp.responseText);
-                }
-            };
-        xhttp.open("GET", "/home/translate" + "?" + params, true);
-        xhttp.send();
-        }
-
-        function pollServerForNewTranslation(id) {
-        var status = undefined;
-          var interval = setInterval(function loadTranslation() {
-            var xhttp = new XMLHttpRequest();
-            var params = "uid=" + id;
+            let xhttp = new XMLHttpRequest();
+            let params = "langPair=" + langPair+"&"+"textToTranslate="+ textToTranslate;
 
             xhttp.onreadystatechange = function() {
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
                     parser = new DOMParser();
-                    var doc = parser.parseFromString(xhttp.responseText, "text/html");
-                    var rows = document.getElementById("table1").getElementsByTagName("tr");
-                    var rows2 = doc.getElementById("table2").rows;
+                    let doc = parser.parseFromString(xhttp.responseText, "text/html");
+                    document.getElementById("table1").innerHTML += xhttp.responseText;
+                    let rows1 = document.getElementById("table1").rows;
 
-                    $('#table1 > tbody td').each(function () {
-                        if(this.id == id){
-                        var tdId = this;
-                            for(var i = 0; i < rows2.length; i ++){
-                                var tds = rows2[i].getElementsByTagName("td");
-
-                                for (var n=0; n<tds.length;n++){
-                                    if(tds[n].id == id){
-                                        tdId.innerHTML = tds[n].innerHTML
-                                    }
-                                 }
+                    for(let i = 0; i < rows1.length; i++){
+                        let tds = rows1[i].getElementsByTagName("td");
+                        for (var j=0; j<tds.length;j++){
+                        //if it didnt start polling
+                            if(tds[j].innerHTML == 'new'){
+                            // click on button to check status of translation, start polling
+                                tds[j+1].children[0].click();
                             }
-
                         }
-
-                        if(this.id == (id+'status')){
-                        var tdStatus = this;
-                            for(var i = 0; i < rows2.length; i ++){
-                                var tds = rows2[i].getElementsByTagName("td");
-
-                                for (var n=0; n<tds.length;n++){
-                                    if(tds[n].id == (id+'status')){
-                                        tdStatus.innerHTML = tds[n].innerHTML
-                                        status = tds[n].innerHTML
-                                    }
-                                 }
-                            }
-
-                        }
-                    });
-
-
-
-                    console.log(rows)
-                    console.log(rows2)
-
+                    }
                 }
-             };
-        if(status === "completed"){
-           stopPolling(interval)
-        }else{
-        xhttp.open("GET", "/home/translate/check" + "?" + params, true);
-        xhttp.send();
+            };
+
+            xhttp.open("GET", "/home/translate" + "?" + params, true);
+            xhttp.send();
         }
 
+        function pollServerForNewTranslation(id) {
+            let status = undefined;
+            let interval = setInterval(function loadTranslation() {
+            let xhttp = new XMLHttpRequest();
+            let params = "uid=" + id;
 
-          }, 5000);
-}
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    parser = new DOMParser();
+                    let doc = parser.parseFromString(xhttp.responseText, "text/html");
+                    let rows = document.getElementById("table1").getElementsByTagName("tr");
+                    let rows2 = doc.getElementById("table2").rows;
 
+                    $('#table1 > tbody td').each(function () {
+                        //change translation text
+                        if(this.id == id){
+                            let tdId = this;
+                            for(let i = 0; i < rows2.length; i++){
+                                let tds = rows2[i].getElementsByTagName("td");
+                                for (let j=0;j<tds.length;j++){
+                                    if(tds[j].id == id){
+                                        tdId.innerHTML = tds[j].innerHTML
+                                    }
+                                }
+                            }
+                        }
+                        // CHange Status
+                        if(this.id == (id+'status')){
+                            let tdStatus = this;
+                            for(let i = 0; i < rows2.length; i ++){
+                                var tds = rows2[i].getElementsByTagName("td");
+                                for (let j=0; j<tds.length;j++){
+                                    if(tds[j].id == (id+'status')){
+                                        tdStatus.innerHTML = tds[j].innerHTML;
+                                        status = tds[j].innerHTML;
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            };
 
-function stopPolling(intervalId) {
-console.log("STOP")
-clearInterval(intervalId)
-}
+            if(status === "completed"){
+            //if translation is completed stop polling
+                stopPolling(interval)
+            } else {
+            //else check status
+                xhttp.open("GET", "/home/translate/check" + "?" + params, true);
+                xhttp.send();
+            }
+            }, 5000);
+        }
 
+        function stopPolling(intervalId) {
+            clearInterval(intervalId)
+        }
     </script>
 </html>
 
